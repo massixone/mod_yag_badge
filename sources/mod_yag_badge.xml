@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site" method="upgrade">
+	<name>Yet Another GooglePlus Badges (YAGB)</name>
+	<author>Massimo Di Primio</author>
+	<creationDate>2017-09-01</creationDate>
+	<copyright>Copyright(C) 2006-2017 Massimo Di Primio</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>massix@gmail.com</authorEmail>
+	<authorUrl>http://www.diprimio.com/</authorUrl>
+	<version>rev</version>
+	<description>Thanks for installing Yet Another Google Plus Badges (YAGB). For more information please visit: http://www.diprimio.com/joomla-extensions </description> 
+	<files>
+		<folder>tmpl</folder>
+		<filename module="mod_yag_badge">mod_yag_badge.xml</filename>
+		<filename module="mod_yag_badge">mod_yag_badge.php</filename>
+		<filename module="mod_yag_badge">index.html</filename>
+	</files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_yag_badge.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.mod_yag_badge.sys.ini</language>
+    </languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="profile_type"    type="radio"    class="btn-group"   default="author"    label="MOD_YAGB_PROFILE_TYPE_L" description="MOD_YAGB_PROFILE_TYPE_D">
+					<option value="author">MOD_YAGB_PROFILE_TYPE_OPTION_AUTHOR</option>
+					<option value="publisher">MOD_YAGB_PROFILE_TYPE_OPTION_PUBLISHER</option>
+					<option value="community">MOD_YAGB_PROFILE_TYPE_OPTION_COMMUNITY</option>
+				</field>
+				<field 
+					name="google_profile_id"   type="text" default="+MassimoDiPrimio"  label="MOD_YAGB_GOOLE_PROFILE_ID_L"  description="MOD_YAGB_GOOLE_PROFILE_ID_D" />
+				<field
+					name="width"   type="text" default="300"   label="MOD_YAGB_WIDTH_L"   description="MOD_YAGB_WIDTH_D" />
+				<field
+					name="layout"  type="radio"    class="btn-group"   default="portrait"  label="MOD_YAGB_LAYOUT_L"  description="MOD_YAGB_LAYOUT_D">
+					<option value="portrait">MOD_YAGB_LAYOUT_OPTION_PORTRAIT</option>
+					<option value="landscape">MOD_YAGB_LAYOUT_OPTION_LANDSCAPE</option>
+				</field>
+				<field
+					name="cover_theme" type="radio"    class="btn-group"   default="light" label="MOD_YAGB_COVER_THEME_L" description="MOD_YAGB_COVER_THEME_D">
+					<option value="light">MOD_YAGB_COVER_THEME_OPTION_LIGHT</option>
+					<option value="dark">MOD_YAGB_COVER_THEME_OPTION_DARK</option>
+				</field>
+				<field
+					name="cover_photo" type="radio"    class="btn-group"   default="true"  label="MOD_YAGB_COVER_PHOTO_L" description="MOD_YAGB_COVER_PHOTO_D">
+					<option value="true">MOD_YAGB_COVER_PHOTO_OPTION_TRUE</option>
+					<option value="false">MOD_YAGB_COVER_PHOTO_OPTION_FALSE</option>
+				</field>
+				<field name="tagline"   type="radio" class="btn-group" default="true" label="MOD_YAGB_TAGLINE_L"   description="MOD_YAGB_TAGLINE_D">
+                    <option value="true">Enabled</option>
+                    <option value="false">Disabled</option>
+                </field>
+				<field
+					name="poweredby"   type="radio"    class="btn-group"   default="true"  label="Powered by"  description="Select if you want to show 'Credit' at the bottom of the box. Default = true">
+					<option value="true">MOD_YAGB_TAGLINE_OPTION_ENABLED</option>
+					<option value="false">MOD_YAGB_TAGLINE_OPTION_DISABLED</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					default=""
+					label="MOD_YAGB_MODULE_CLASS_SFX_L"
+					description="MOD_YAGB_MODULE_CLASS_SFX_D" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

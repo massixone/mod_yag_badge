@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--<project name="DebugHelper" description="Debug Helper" default="git" >-->
+<project name="${project.name}" description="${project.description}" default="git" >
+	<import file="${phing.dir}/../../buildfiles/phing/common.xml" />
+
+    <!--
+    ====================================================================================================
+    Tasks - General
+    ====================================================================================================
+    -->
+
+    <target name="all" description="Makes everything for ${project.name}"
+            depends="git,lang">
+    </target>
+
+    <target name="git" description="Makes only packages, not the documentation"
+            depends="new-release,setup-properties,component-package">
+    </target>
+
+	<!--
+	====================================================================================================
+	Tasks - Joomla! packages
+	====================================================================================================
+	-->
+
+	<target name="component-package" description="Component package build" depends="new-release,setup-properties">
+
+		<copy file="./templates/tmpl_${project.name}.xml" tofile="${dirs.root}/${project.src}/${project.name}.xml" overwrite="true"> <!--"${dirs.modules}/tmpl_mod_yagb.xml" overwrite="true">-->
+			<filterchain>
+				<replacetokens begintoken="##" endtoken="##">
+					<token key="DATE" value="${build.date}" />
+					<token key="VERSION" value="${version}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+
+		<zipme basedir="${dirs.root}/${project.src}" prefix="mod_yag_badge/" destfile="${dirs.root}/${project.out}/${project.name}-${version}.zip" includeemptydirs="true">
+			<fileset dir="${dirs.root}/${project.src}">
+				<include name="**" />
+			</fileset>
+		</zipme>
+		<echo msg="Completed project: ${project.name}" />
+	</target>
+
+	<target name="documentation">
+		<echo>There are no docs for this project</echo>
+	</target>
+</project>
